@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request-promise');
 
 const app = express()
-const PORT = 5000 || process.env.PORT
+const PORT =  process.env.PORT || 5000
 
 function generateApikey(apikey){
     const baseUrl = `http://api.scraperapi.com?api_key=${apikey}&autoparse=true`
