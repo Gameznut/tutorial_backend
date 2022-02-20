@@ -1,12 +1,8 @@
 const express = require('express');
-require('dotenv').config()
 const request = require('request-promise');
 
 const app = express()
 const PORT = 5000 || process.env.PORT
-// const APIKEY = 'a0f6fa1f6015a8a6720e5dca3dbee0c6'
-
-// const baseUrl = `http://api.scraperapi.com?api_key=${process.env.APIKEY}&autoparse=true`
 
 function generateApikey(apikey){
     const baseUrl = `http://api.scraperapi.com?api_key=${apikey}&autoparse=true`
@@ -57,7 +53,7 @@ app.get('/products/:productId/offers', async(req, res)=> {
 
 app.get('/search/:searchQuery', async(req, res)=> {
     const {searchQuery} = req.params
-    const apikey = 'a0f6fa1f6015a8a6720e5dca3dbee0c6'
+    const apikey = req.query
 
     console.log(searchQuery);
      try {
