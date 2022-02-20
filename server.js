@@ -14,7 +14,7 @@ app.use(express.json())
 // app.use(request())
 
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    res.send('Welcome to my amazon scapper Api from pablo')
 })
 
 app.get('/products/:productId', async(req, res)=> {
