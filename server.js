@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.get('/products/:productId', async(req, res)=> {
     const {productId} = req.params
-    const apikey = req.query
+    const {apikey} = req.query
     
      try {
          const response = await request(`${generateApikey(apikey)}&url=https://www.amazon.com/dp/${productId}`)
@@ -30,7 +30,7 @@ app.get('/products/:productId', async(req, res)=> {
 })
 app.get('/products/:productId/reviews', async(req, res)=> {
     const {productId} = req.params
-    const apikey = req.query
+    const {apikey} = req.query
 
      try {
          const response = await request(`${generateApikey(apikey)}&url=https://www.amazon.com/product-review/${productId}`)
@@ -42,7 +42,7 @@ app.get('/products/:productId/reviews', async(req, res)=> {
 
 app.get('/products/:productId/offers', async(req, res)=> {
     const {productId} = req.params
-    const apikey = req.query
+    const {apikey} = req.query
      try {
          const response = await request(`${generateApikey(apikey)}&url=https://www.amazon.com/gp/offer-listing/${productId}`)
          res.json(JSON.parse(response))
@@ -53,7 +53,7 @@ app.get('/products/:productId/offers', async(req, res)=> {
 
 app.get('/search/:searchQuery', async(req, res)=> {
     const {searchQuery} = req.params
-    const apikey = req.query
+    const {apikey} = req.query
 
     console.log(searchQuery);
      try {
